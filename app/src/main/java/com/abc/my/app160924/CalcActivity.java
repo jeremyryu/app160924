@@ -12,6 +12,8 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     Button bt_plus, bt_minus, bt_multi, bt_divide, bt_mod, bt_equal;
     TextView tv_result;
     int result ;
+    CalcService service = new CalcServiceImpl();
+    CalcDTO cal = new CalcDTO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,21 +42,24 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int num1 = Integer.parseInt(et_num_1.getText().toString());
         int num2 = Integer.parseInt(et_num_2.getText().toString());
+        cal.setNum1(num1);
+        cal.setNum2(num2);
+
         switch (v.getId()){
             case R.id.bt_plus :
-                result = num1 + num2;
+                result = service.plus(cal).getResult();
                 break;
             case R.id.bt_minus :
-                result = num1 - num2;
+                result = service.minus(cal).getResult();
                 break;
             case R.id.bt_multi :
-                result = num1 * num2;
+                result = service.multi(cal).getResult();
                 break;
             case R.id.bt_divide :
-                result = num1 / num2;
+                result = service.divide(cal).getResult();
                 break;
             case R.id.bt_mod :
-                result = num1 % num2;
+                result = service.mod(cal).getResult();
                 break;
             case R.id.bt_equal :
                 tv_result.setText("result : " + result);
