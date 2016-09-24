@@ -40,7 +40,6 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int num1 = Integer.parseInt(et_num_1.getText().toString());
         int num2 = Integer.parseInt(et_num_2.getText().toString());
-
         switch (v.getId()){
             case R.id.bt_plus :
                 result = num1 + num2;
