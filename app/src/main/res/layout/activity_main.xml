@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="1">
+    <TextView
+        android:text="HANBIT_WEEKEND"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_main"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
+        android:textSize="30dp"
+        android:textColor="#3532df"
+        android:layout_weight="0.21" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CALC"/>
+
+</LinearLayout>
