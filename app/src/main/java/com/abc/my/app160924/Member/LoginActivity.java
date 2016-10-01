@@ -1,5 +1,6 @@
 package com.abc.my.app160924.Member;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,7 +14,7 @@ import com.abc.my.app160924.R;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     Button bt_login, bt_join;
     EditText et_id, et_pw;
-    MemeberService service = new MemberServiceImpl();
+    MemeberService service;
 //    MemberService service = new MemberServiceImpl();
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        service = new MemberServiceImpl(this.getApplicationContext());
 
         bt_login = (Button) findViewById(R.id.bt_login);
         bt_join = (Button) findViewById(R.id.bt_join);
@@ -67,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.bt_join:
 
-                Toast.makeText(LoginActivity.this, "Join Button clicked", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(LoginActivity.this, JoinActivity.class));
                 break;
         }
     }

@@ -1,13 +1,20 @@
 package com.abc.my.app160924.Member;
 
+import android.content.Context;
 import android.util.Log;
+
+import com.abc.my.app160924.Util.Retval;
 
 /**
  * Created by 1027 on 2016-10-01.
  */
 
 public class MemberServiceImpl implements MemeberService {
-    MemberDAO dao = new MemberDAO();
+    MemberDAO dao;
+
+    public MemberServiceImpl(Context context) {
+        this.dao = new MemberDAO(context);
+    }
 
     @Override
     public MemberDTO login(MemberDTO param) {
@@ -30,7 +37,15 @@ public class MemberServiceImpl implements MemeberService {
     }
 
     @Override
-    public MemberDTO join(MemberDTO param) {
-        return null;
+    public Retval join(MemberDTO param) {
+
+        Log.i("=SERVICE에서 받은 ID :", param.getId());
+        Log.i("=SERVICE에서 받은 PW :", param.getPw());
+        Log.i("=SERVICE에서 받은 NAME :", param.getName());
+        Log.i("=SERVICE에서 받은 EMAIL :", param.getEmail());
+        Log.i("=SERVICE에서 받은 ADDR :", param.getAddr());
+        Log.i("=SERVICE에서 받은 PHONE :", param.getPhone());
+
+        return dao.insert(param);
     }
 }

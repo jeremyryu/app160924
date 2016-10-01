@@ -9,6 +9,9 @@ public class MemberDTO {
     private String pw;
     private String name;
     private String email;
+    private String addr;
+    private String phone;
+    private String profileImg;
 
     public String getId() {
         return id;
@@ -65,9 +68,5 @@ public class MemberDTO {
     public void setProfileImg(String profileImg) {
         this.profileImg = profileImg;
     }
-
-    private String addr;
-    private String phone;
-    private String profileImg;
 
 }
