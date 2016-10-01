@@ -1,4 +1,4 @@
-package com.abc.my.app160924;
+package com.abc.my.app160924.Calc;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.abc.my.app160924.R;
 
 public class CalcActivity extends AppCompatActivity implements View.OnClickListener {
     EditText et_num_1, et_num_2;
