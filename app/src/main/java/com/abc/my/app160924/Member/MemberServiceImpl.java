@@ -3,7 +3,7 @@ package com.abc.my.app160924.Member;
 import android.content.Context;
 import android.util.Log;
 
-import com.abc.my.app160924.Util.Retval;
+import java.util.ArrayList;
 
 /**
  * Created by 1027 on 2016-10-01.
@@ -21,7 +21,7 @@ public class MemberServiceImpl implements MemeberService {
         Log.i("====SERVICE에서 받은 ID :", param.getId());
         Log.i("====SERVICE에서 받은 PW :", param.getPw());
         MemberDTO member = new MemberDTO();
-        member = dao.select(param);
+        member = dao.selectOne(param);
 
         if (member == null) {
             member.setId("NONE");
@@ -37,7 +37,37 @@ public class MemberServiceImpl implements MemeberService {
     }
 
     @Override
-    public Retval join(MemberDTO param) {
+    public ArrayList<MemberDTO> getList() {
+        return dao.selectList();
+    }
+
+    @Override
+    public ArrayList<MemberDTO> getListByName(MemberDTO member) {
+        return dao.selectListByName(member);
+    }
+
+    @Override
+    public MemberDTO getOne(MemberDTO member) {
+        return dao.selectOne(member);
+    }
+
+    @Override
+    public int count() {
+        return dao.count();
+    }
+
+    @Override
+    public void update(MemberDTO member) {
+        dao.update(member);
+    }
+
+    @Override
+    public void unregist(MemberDTO member) {
+        dao.delete(member);
+    }
+
+    @Override
+    public void regist(MemberDTO param) {
 
         Log.i("=SERVICE에서 받은 ID :", param.getId());
         Log.i("=SERVICE에서 받은 PW :", param.getPw());
@@ -46,6 +76,6 @@ public class MemberServiceImpl implements MemeberService {
         Log.i("=SERVICE에서 받은 ADDR :", param.getAddr());
         Log.i("=SERVICE에서 받은 PHONE :", param.getPhone());
 
-        return dao.insert(param);
+        dao.insert(param);
     }
 }

@@ -8,16 +8,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.abc.my.app160924.MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.abc.my.app160924.Calc.CalcActivity" />
-        <activity android:name="com.abc.my.app160924.Member.LoginActivity" />
-        <activity android:name="com.abc.my.app160924.Member.JoinActivity" />
+        <activity android:name=".Calc.CalcActivity" />
+        <activity android:name=".Member.LoginActivity" />
+        <activity android:name=".Member.JoinActivity" />
+        <activity android:name=".Member.ListActivity"></activity>
     </application>
 
 </manifest>

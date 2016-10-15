@@ -1,6 +1,6 @@
 package com.abc.my.app160924.Member;
 
-import com.abc.my.app160924.Util.Retval;
+import java.util.ArrayList;
 
 /**
  * Created by 1027 on 2016-10-01.
@@ -9,6 +9,14 @@ import com.abc.my.app160924.Util.Retval;
 public interface MemeberService {
 
     public MemberDTO login(MemberDTO member);
-    public Retval join(MemberDTO member);
+
+    public ArrayList<MemberDTO> getList();
+    public ArrayList<MemberDTO> getListByName(MemberDTO member);
+    public MemberDTO getOne(MemberDTO member);
+    public int count();
+    public void update(MemberDTO member);
+    public void unregist(MemberDTO member);
+
+    public void regist(MemberDTO member);
 
 }
