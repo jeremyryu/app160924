@@ -15,7 +15,7 @@ public interface MemeberService {
     public MemberDTO getOne(MemberDTO member);
     public int count();
     public void update(MemberDTO member);
-    public void unregist(MemberDTO member);
+    public void unregist(String id);
 
     public void regist(MemberDTO member);
 

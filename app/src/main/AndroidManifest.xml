@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.abc.my.app160924">
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +22,9 @@
         <activity android:name=".Calc.CalcActivity" />
         <activity android:name=".Member.LoginActivity" />
         <activity android:name=".Member.JoinActivity" />
-        <activity android:name=".Member.ListActivity"></activity>
+        <activity android:name=".Member.ListActivity" />
+        <activity android:name=".Member.MemberDetailActivity" />
+        <activity android:name=".Member.MemberUpdateActivity"></activity>
     </application>
 
 </manifest>

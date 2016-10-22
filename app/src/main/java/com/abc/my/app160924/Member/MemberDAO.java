@@ -160,8 +160,7 @@ public class MemberDAO extends SQLiteOpenHelper {
     }
 
     public MemberDTO selectOne(MemberDTO param) {
-        Log.i("DAO 에서 받은 id :", param.getId());
-        Log.i("DAO 에서 받은 pw :", param.getPw());
+        Log.i("DAO 에서 받은 id ===:", param.getId());
         Log.i("DAO ID조회 :", "selectListOne() 진입");
 
         String sql = "select "
@@ -185,6 +184,8 @@ public class MemberDAO extends SQLiteOpenHelper {
             temp.setPhone(cursor.getString(5));
             temp.setProfileImg(cursor.getString(6));
         }
+
+        Log.i("DAO 검색조회 :", "selectListByName() 나감");
 
         return temp;
     }
@@ -231,12 +232,19 @@ public class MemberDAO extends SQLiteOpenHelper {
     }
 
     public void update(MemberDTO param){
-        Log.i("DAO UPDATE :", "update() 진입");
+        Log.i("DAO UPDATE id:", "update() 진입 " + param.getId());
+        Log.i("DAO UPDATE pw :", param.getPw());
+        Log.i("DAO UPDATE emil:", param.getEmail());
+        Log.i("DAO UPDATE addr:", param.getAddr());
+        Log.i("DAO UPDATE phone:", param.getPhone());
+        Log.i("DAO UPDATE name:", param.getName());
+
         String sql = "update " + TABLE_NAME
                 +" set pw = '"  + param.getPw() + "'"
+                +" ,name  = '" + param.getName() + "'"
                 +" ,email  = '" + param.getEmail() + "'"
-                +" ,addr = '"   + param.getEmail() + "'"
-                +" ,profileimg = '" + param.getProfileImg() + "'"
+                +" ,addr = '"   + param.getAddr() + "'"
+                +" ,phone = '" + param.getPhone() + "'"
                 +"  where id = '" + param.getId() +"';"
                 ;
 
@@ -246,14 +254,16 @@ public class MemberDAO extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void delete(MemberDTO param){
-        Log.i("DAO Delete :", "delete() 진입");
-        String sql = "delete " + TABLE_NAME
-                +"  where id = '" + param.getId() +"';"
+    public void delete(String id){
+        Log.i("DAO Delete :", "delete() 진입" + id);
+        String sql = "delete from " + TABLE_NAME
+                +"  where id = '" + id +"';"
                 ;
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(sql);
+
+        Log.i("DAO Delete :", "delete() 나감" + id);
 
         db.close();
 
